@@ -1,0 +1,14 @@
+<p>lifecycle works!</p>
+<!-- <app-childpage [message]="d"></app-childpage>
+<input type="text" id="t1" (input)="showdata()"> -->
+<p>product Name: {{product.name|uppercase}}</p>
+<p>price: {{product.price|currency:'INR'}}</p>
+<p> date:{{product.releaseDate|date:'longDate'}}</p>
+
+<p> reversing a string:  {{'angular'| reverse}}</p>
+<p> returns the word count : {{'angular is awesomw!'| wordCount}}</p>
+<p >hortens a long string and adds "..." at the end.   :     {{'This is a long text that needs to be shortened' | truncate:20 }} </p>
+<input [(ngModel)]="searchTerm" placeholder="search user"/>
+<ul>
+    <li *ngFor="let user of users | filter:searchTerm">{{ user }}</li>
+  </ul>

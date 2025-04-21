@@ -1,0 +1,61 @@
+<p>login works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .v{
+        
+            border: 3px solid green;
+        }
+        .i{
+            border:3px solid red;
+        }
+    </style>
+    <div style="width: 500px; margin-left: 300px;">
+    <form #f="ngForm" (ngSubmit)="validate(f.value)">
+        {{f.value |json}}<br>
+        <br>
+        <label>enter username</label>
+        <input type="text" required  pattern="[a-z]+" ngModel  name="uname" #u="ngModel" class="form-control"  [class.v]="u.valid && u.touched" [class.i]="u.invalid && u.touched"/>
+        <br>
+        <div style="background-color: yellow;color: red;">
+        <div *ngIf="u.errors?.['required']&& u.untouched">enter username</div>
+        <div *ngIf="u.errors?.['pattern']&& u.untouched">invalid patern enter only alphabets</div>
+        </div>
+         <!-- <label>touched:</label>{{u.touched}}
+        <br>
+        <label>untouched:</label>{{u.untouched}}
+        <br>
+        <label>dirty:</label>{{u.dirty}}
+        <br>
+        <label>pristine:</label>{{u.pristine}}
+        <br>
+        <label>valid:</label>{{u.valid}}
+        <br>
+        <label>invalid:</label>{{u.invalid}}
+        <br> -->
+        <label>enter password</label>
+        <div *ngIf="u.errors?.['pattern']&& u.untouched">invalid patern enter only alphabets</div>
+
+        <input type="text"   required pattern="[a-z0-9]+" ngModel   name="pwd" ngModel class="form-control"/>
+        <br>
+       
+        <button type="submit"class="btn btn-success">Login</button>
+
+
+
+
+
+
+    </form>
+    </div>
+    <div class=" bg bg-info">
+        {{err}}
+    </div>
+</body>
+</html>

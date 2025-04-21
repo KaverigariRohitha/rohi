@@ -1,0 +1,59 @@
+
+<html>
+    <style>
+.v{
+   border:solid green
+}
+.i
+{
+    border:solid red
+}
+</style>
+<div style="width: 500px; margin-left: 300px;">
+
+<h1><b> student details</b></h1>
+
+
+ <div>
+ <form #myForm="ngForm" (ngSubmit)="submit(myForm.value)">
+    <label>enter student name </label>
+        <input type="text"  required pattern="[a-z]+" name="uname" ngModel #u="ngModel" class="form-control" [class.v]="u.valid && u.touched  " [class.i]="u.invalid&& u.touched" />
+        <div *ngIf="u.errors?.['requied']&& u.touched"> required </div>
+        <div style="background-color: yellow;color: red;">
+            <div *ngIf="u.errors?.['required']&& u.untouched">enter username</div>
+         <div *ngIf="u.errors?.['pattern']&& u.touched"> pattern incorrect  </div>
+
+        </div>
+   
+        <label>Email </label>
+        <input type="email" required pattern="[a-z 0-9]+@gmail.com" name="email" #p="ngModel" [class.v]="p.valid&&p.touched " [class.i]="p.invalid&&p.touched " ngModel class="form-control"/>
+        <div *ngIf="p.errors?.['requied']&& p.touched"> required </div>
+        <div style="background-color: yellow;color: red;">
+            <div *ngIf="p.errors?.['required']&& p.untouched">enter email</div>
+         <div *ngIf="p.errors?.['pattern']&& p.touched"> pattern incorrect  </div>
+        </div>
+
+
+       <label>MESSAGE </label>
+      <textarea type="text" required  name="msg" #t="ngModel" [class.v]="t.valid&&t.touched " [class.i]="t.invalid&&t.touched " ngModel class="form-control"></textarea>
+      <div style="background-color: yellow;color: red;">
+        <div *ngIf="t.errors?.['required']&& t.untouched">enter message</div>
+       </div>
+
+       <label>   do u have any experience     </label>
+      <input type="checkbox" name="exp" [(ngModel)]="exp"  value="true">
+     <div *ngIf="exp">
+      <label>enter ur year of experience in course</label>
+      <input type="number" name="exp1" [(ngModel)]="exp1" >
+     </div>
+     <br>
+        <button type="submit" class="btn btn-success" [disabled]="myForm.invalid">submit </button>
+        <button type="submit" class="btn btn-success" (click)="myForm.resetForm()">reset </button>
+ </form>
+ </div>
+ <div *ngIf="myForm.valid">{{myForm.value|json}}</div>
+</div>
+
+ </html>
+  
+

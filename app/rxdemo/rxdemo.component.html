@@ -1,0 +1,29 @@
+<p>rxdemo works!</p>
+<button (click)="fromdemo()">rxdemo</button> <br>
+<button (click)="interval()">interval btn</button> <br>
+<button (click)="fromEvent()" id="clickbtn">clickbtn</button> <br>
+<button (click)="observabledemo()" id="clickbtn">btn</button> <br>
+<button (click)="displaystudents()">student btn</button>
+{{fd}}
+<div class="bg bg-info">
+    <div *ngFor="let i of studarray">
+        <div>{{i.id}}</div>
+        <div>{{i.studentname}}</div>
+        <div>{{i.totalmarks}}</div>
+        </div>
+    </div>
+
+    <input type="text" name="txt" ngModel #txt=ngModel />
+    <button (click)="displaystudentbyid(txt.value)">getbyid</button>
+    
+    <div> {{studentdata.id}}</div>
+    <div> {{studentdata.studentname}}</div>
+    <div> {{studentdata.totalmarks}}</div>
+    <button (click)="addnewstudents()">addnewstudent</button>
+    <input type="text" id="t1">
+    <input type="text" id="t2">
+    <input type="text" id="t3">
+    <br><br>
+    
+    <input type="text" name="txt" ngModel #txt=ngModel />
+    <button (click)="delete(txt.value)">deletebyid</button>

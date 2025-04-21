@@ -1,0 +1,52 @@
+<p>register works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 500px; margin-left: 300px;">
+    <form [formGroup]="f">
+        <label>enter username</label>
+        <br>
+        <input type="text"  formControlName="uname" class="form-controls">
+        <div style="background-color: yellow;color: red;">
+        <div *ngIf="f.controls.uname.errors?.required && f.controls.uname.touched">please enter username</div>
+        </div>
+        <br>
+
+        <label>enter mail</label>
+        <br>
+        <input type="text" formControlName="em" class="form-controls">
+        <br>
+        <div style="background-color: yellow;color: red;">
+        <div *ngIf="f.controls.em.errors?.required && f.controls.em.touched">please enter email</div>
+        </div>
+
+        <label>enter address</label>
+        <br>
+        <input type="text" formControlName="address" class="form-controls">
+        <div style="background-color: yellow;color: red;">
+            <div *ngIf="f.controls.address.errors?.msg && f.controls.address.touched">please starts with A</div>
+        </div>
+
+
+        <label>enter message</label>
+        <br>
+        <textarea formControlName="msg" class="form-controls">
+        </textarea>
+        <br>
+        <div style="background-color: yellow;color: red;">
+        <div *ngIf="f.controls.msg.errors?.required && f.controls.msg.touched">please enter message</div>
+        <div *ngIf="f.controls.msg.errors?.maxlength && f.controls.msg.touched">please enter  max length only </div>
+        <div *ngIf="f.controls.msg.errors?.minlength && f.controls.msg.touched">please enter  min  6 charcter length </div>
+
+
+        </div>
+        <input type="submit" value="send" class="btn btn-success">
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<p>product works!</p>
+<style>
+    .e{
+        background-color: black;
+        color: white;
+    }
+    .o{
+        background-color:rosybrown;
+        color: white;
+    }
+</style>
+<!-- <div *ngFor="let item of prod;let i=even ; let j=odd" [class.e]="i"  [class.o]="j">{{i}}
+    {{item.pid}},{{item.pname}},{{item.price}}{{item.description}},<img src="{{item.pimage}}"/>
+</div> -->
+<div class="row">
+    <div class="col-md-4" *ngFor = "let i of b">
+        <div>{{i.pid}}</div>
+        <div>{{i.pname}}</div>
+        <div>{{i.price}}</div>
+        <div>{{i.price |discount:10|currency:'INR'}}</div>
+
+        <div *ngIf="isImageVisible" >
+        <div><img src="{{i.pimage}}"/></div>
+        </div>
+        
+        <div>{{i.description}}</div> 
+        <div> <a routerLink="/buypage" [queryParams]="{a:i.pid,b:i.pname,c:i.price,d:i.pimage,e:i.description}" class="btn btn-info">buy now..</a></div>
+    </div>
+ </div>
+
+ <div>
+    <button (click)="toggleImage()">show/hide</button>
+  </div>
+  <button (click)="hi()">click</button>
+
+  <!-- <div *ngFor = "let i of prod">
+  <div *ngIf="isImageVisible" >
+    <img src="{{i.pimage}}" alt="Placeholder Image">
+  </div>
+  </div> -->

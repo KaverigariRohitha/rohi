@@ -1,0 +1,20 @@
+<p>parent works!</p>
+<app-child [message]="a"></app-child>
+<hr>
+<app-child (myevent)="display($event)"></app-child>
+<p>message from child is {{data}}</p>
+
+<app-child>
+    <div #myid>
+        <h1>welcome...</h1>
+        <hr>
+        <b>prepare for assesment</b>
+    </div>
+</app-child>
+
+<div #d1> </div>
+<button (click)="changesettings()">click</button>
+<div>
+ 
+
+</div>
