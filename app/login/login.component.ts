@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,14 +16,11 @@ export class LoginComponent {
   }
   validate(frm:any)
   {
-    // frm contains all input values
-    // alert(frm.uname);
-    // uname:admin && password india
-
-    if(frm.uname=="admin" && frm.pwd=="India")
+    if(frm.uname=="login.username" && frm.pwd=="login.password")
       {
         sessionStorage.setItem("uname",frm.uname)
-        this.r.navigate(['product'])
+        console.log("Correct login");
+        this.r.navigate(['pizzas'])
 
       }
       else
@@ -31,5 +29,4 @@ export class LoginComponent {
       }
     
   }
-
 }

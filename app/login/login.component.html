@@ -1,4 +1,4 @@
-<p>login works!</p>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="bg">
     <style>
         .v{
         
@@ -18,44 +19,39 @@
     </style>
     <div style="width: 500px; margin-left: 300px;">
     <form #f="ngForm" (ngSubmit)="validate(f.value)">
+        <br>
+        <br>
         {{f.value |json}}<br>
         <br>
-        <label>enter username</label>
+        <label><b>enter username</b></label><br>
+        <br>
         <input type="text" required  pattern="[a-z]+" ngModel  name="uname" #u="ngModel" class="form-control"  [class.v]="u.valid && u.touched" [class.i]="u.invalid && u.touched"/>
         <br>
         <div style="background-color: yellow;color: red;">
         <div *ngIf="u.errors?.['required']&& u.untouched">enter username</div>
         <div *ngIf="u.errors?.['pattern']&& u.untouched">invalid patern enter only alphabets</div>
         </div>
-         <!-- <label>touched:</label>{{u.touched}}
         <br>
-        <label>untouched:</label>{{u.untouched}}
         <br>
-        <label>dirty:</label>{{u.dirty}}
+        <label> <b>enter password</b></label>
         <br>
-        <label>pristine:</label>{{u.pristine}}
         <br>
-        <label>valid:</label>{{u.valid}}
-        <br>
-        <label>invalid:</label>{{u.invalid}}
-        <br> -->
-        <label>enter password</label>
-        <div *ngIf="u.errors?.['pattern']&& u.untouched">invalid patern enter only alphabets</div>
 
-        <input type="text"   required pattern="[a-z0-9]+" ngModel   name="pwd" ngModel class="form-control"/>
+        <input type="text"   #p="ngModel" required pattern="[a-z0-9]+" minlength="5" ngModel   name="pwd" ngModel class="form-control"/>
+        <div style="background-color: yellow;color: red;">
+            <div *ngIf="p.errors?.['required']&& p.untouched">enter password</div>
+        
+        <div *ngIf="p.errors?.['pattern']&& p.untouched">invalid patern</div>
+        <div *ngIf="p.errors?.['minlength']&& p.untouched">enter minlength of 5 character</div>
+        </div>
         <br>
-       
         <button type="submit"class="btn btn-success">Login</button>
-
-
-
-
-
 
     </form>
     </div>
-    <div class=" bg bg-info">
+    <div class=" bg bg-danger">
         {{err}}
+    </div>
     </div>
 </body>
 </html>

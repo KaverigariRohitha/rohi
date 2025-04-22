@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4" *ngFor = "let i of pizzaarray">
+            <div class="card" style=" width: 400px; height: 500px; margin-top: 70px; margin-left: 50px;">
+                <div class="card-header">
+            <div><img src={{i.image}} style="height:250px; width:250px;margin-top: 40px;"></div>
+            </div>
+            <div class="card-body">
+            <div><b style="color:rgb(54, 33, 238);"> id:</b> {{i.id}}</div>
+            <div><b style="color:rgb(54, 33, 238);">toppings:</b>{{i.toppings}}</div>
+            <div><b style="color:rgb(54, 33, 238);">sause:</b>{{i.sauce}}</div>
+            <div><b style="color:rgb(54, 33, 238);"> size:</b>{{i.size}}</div>
+            <div><b style="color:rgb(54, 33, 238);"> type:</b>{{i.Features}}</div>
+            <div><b style="color:rgb(54, 33, 238);"> price:</b>{{i.price|currency:'INR'}}</div>
+            </div>
+            <br>
+                <button  routerLink="/order" [queryParams]= "{a:i.id,b:i.toppings,c:i.sauce,d:i.size,e:i.Features,f:i.image,g:i.price}" class="btn btn-info form-control ms-5 mb-6" style="width: 400px;" type="submit" class="bg-info">add to card</button>
+                <button type="submit" class="bg-warning" >buy now</button>
+        </div>
+
+        </div>
+     </div>
+</body>
+</html>

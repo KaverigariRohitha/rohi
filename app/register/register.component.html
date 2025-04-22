@@ -1,52 +1,36 @@
-<p>register works!</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div style="width: 500px; margin-left: 300px;">
-    <form [formGroup]="f">
-        <label>enter username</label>
-        <br>
-        <input type="text"  formControlName="uname" class="form-controls">
-        <div style="background-color: yellow;color: red;">
-        <div *ngIf="f.controls.uname.errors?.required && f.controls.uname.touched">please enter username</div>
-        </div>
-        <br>
-
-        <label>enter mail</label>
-        <br>
-        <input type="text" formControlName="em" class="form-controls">
-        <br>
-        <div style="background-color: yellow;color: red;">
-        <div *ngIf="f.controls.em.errors?.required && f.controls.em.touched">please enter email</div>
-        </div>
-
-        <label>enter address</label>
-        <br>
-        <input type="text" formControlName="address" class="form-controls">
-        <div style="background-color: yellow;color: red;">
-            <div *ngIf="f.controls.address.errors?.msg && f.controls.address.touched">please starts with A</div>
-        </div>
-
-
-        <label>enter message</label>
-        <br>
-        <textarea formControlName="msg" class="form-controls">
-        </textarea>
-        <br>
-        <div style="background-color: yellow;color: red;">
-        <div *ngIf="f.controls.msg.errors?.required && f.controls.msg.touched">please enter message</div>
-        <div *ngIf="f.controls.msg.errors?.maxlength && f.controls.msg.touched">please enter  max length only </div>
-        <div *ngIf="f.controls.msg.errors?.minlength && f.controls.msg.touched">please enter  min  6 charcter length </div>
-
-
-        </div>
-        <input type="submit" value="send" class="btn btn-success">
+<div style="width: 500px; margin: auto; margin-top: 100px;">
+    <form #registrationForm="ngForm" (ngSubmit)="onSubmit(registrationForm)">
+      <div>
+        <label>Full Name:</label>
+        <input type="text" name="fullname" ngModel required #fullname="ngModel" class="form-control" />
+        <div *ngIf="fullname.invalid && fullname.touched">Full Name is required</div>
+      </div> <br>
+      <div>
+        <label>Email:</label>
+        <input type="email" name="email" ngModel required email #email="ngModel" class="form-control" />
+        <div *ngIf="email.invalid && email.touched">Valid Email is required</div>
+      </div>  <br>
+      <div>
+        <label>Password:</label>
+        <input type="password" name="password" ngModel required pattern=".{6,}" #password="ngModel" class="form-control" />
+        <div *ngIf="password.invalid && password.touched">Password must be at least 6 characters</div>
+      </div>  <br>
+      <div>
+        <label>Confirm Password:</label>
+        <input type="password" name="confirmPassword" ngModel required [pattern]="password.value" #confirmPassword="ngModel" class="form-control" />
+        <div *ngIf="confirmPassword.invalid && confirmPassword.touched">Passwords must match</div>
+      </div>  <br>
+      <div>
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male" ngModel required /> Male
+        <input type="radio" name="gender" value="Female" ngModel required /> Female
+      </div>  <br>
+      <div>
+        <label>Country:</label>
+        <select name="country" ngModel required>
+          <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+        </select>
+      </div>  <br>
+      <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid" style="margin-left: 210px;">Register</button>
     </form>
-    </div>
-</body>
-</html>
+  </div> 

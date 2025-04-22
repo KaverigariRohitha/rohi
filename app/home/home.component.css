@@ -1,6 +1,15 @@
-.highlight{
-    color: rgb(68, 4, 4);
-    background-color: rgb(82, 236, 247);
-    padding: 20px;
-    border-radius: 4px;
+
+.bg {
+   
+    background-image: url("https://i.etsystatic.com/32501485/r/il/2387a9/3544520222/il_600x600.3544520222_ifqe.jpg");
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ h3 {text-align: center;
+  width: 400px;
+margin-left: 700px;}
+h1{
+  text-align: center;
 }

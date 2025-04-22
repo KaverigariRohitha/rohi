@@ -1,63 +1,23 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p> <b> <i> <h3 style="color:rgb(230, 17, 98)"> welocme to our pizza store..</h3></i></b></p>
+            <p> <b> <i> <h1 style="color:rgb(230, 17, 98) ">register/login now to place an order!!!</h1></i></b></p>
+           
+            <div class="bg">
+                    <h3 class="text-primary  bg-info">  new user ?  to register click here</h3>
+               <h3> <a routerLink="/register" class="btn btn-success">register</a></h3>
+               <h3 class="text-primary  bg-info">already user ! to login click here</h3>
+               <h3> <a routerLink="/login" class="btn btn-success">Login</a></h3>
+            </div>
 
-{{result2}}
-<br>
+            
 
-<input type="button" value="add" (click)="add()">{{result}}<br>
+</body>
+</html>
 
-<!-- <input type="button" value="dividenums" (click)="dividenums()">{{result2}}<br> -->
-
-<br>
-<hr>
-<h1>{{heading}}</h1>
-{{a}}
-{{b}}
-<div [style]="bg">page content goes heere</div>
-
-
-
-<br>
-<hr>
-<label>Addcss</label>
-<input type="radio" name="cssAction" (change)="setcssAction('add')"><br>
-<label>Remove css</label>
-<input type="radio" name="cssAction" (change)="setcssAction('remove')"><br>
-<input type="button" value="Add/Remove" (click)="applycss()"><br>
-<div [ngClass]="cssClass">Hello  World</div>
-<br>
-<br>
-<div [style.font-weight]="isBoldChecked ? 'bold' : 'normal'"
-     [style.font-style]="isItalicChecked ? 'italic' : 'normal'"
-     [style.Background-color]="iscolorChecked ? 'yellow' : 'transparent'"
-     [style.color]="isTextColorChecked ? 'blue' : 'black'"
-     [style.border]="isBorderColorChecked ? '2px solid red' : 'none'"
-     [style.text-decoration]="isUnderlineChecked ? 'underline' : 'none'">
-  HELLO ANGULAR
-</div>
-
-<label>
-  <input type="checkbox" (change)="toggleStyle($event, 'bold')"> Bold
-</label>
-<br>
-
-<label>
-  <input type="checkbox" (change)="toggleStyle($event, 'italic')"> Italic
-</label>
-<br>
-<label>
-    <input type="checkbox" (change)="toggleStyle($event, 'background-color')"> Backgroundcolor
-  </label>
-  <br>
-  <label>
-    <input type="checkbox" (change)="toggleStyle($event, 'textColor')"> Text Color
-  </label>
-  <br>
-<label>
-  <input type="checkbox" (change)="toggleStyle($event, 'underline')"> Underline
-</label>
-<br>
-<label>
-    <input type="checkbox" (change)="toggleStyle($event, 'borderColor')"> Border Color
-  </label>
-
-  
